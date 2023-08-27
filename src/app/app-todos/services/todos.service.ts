@@ -1,11 +1,13 @@
 import { Injectable,signal } from '@angular/core';
 import { TodoInterface } from '../types/todo.interface';
+import { FilterEnum } from '../types/filters.enum';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodosService {
   todosSig = signal<TodoInterface[]>([]);
+  filterSig = signal<FilterEnum>(FilterEnum.all);
 
   constructor() { }
 
@@ -16,6 +18,5 @@ export class TodosService {
       id:Math.random().toString(16)
     }
     this.todosSig.update((todos) => [...todos,newTodo]);
-
   }
 }
