@@ -11,6 +11,10 @@ export class TodosService {
 
   constructor() { }
 
+  changeFilter(filterName:FilterEnum):void{
+    this.filterSig.set(filterName);
+  }
+
   addTodo(text:string):void{
     const newTodo:TodoInterface = {
       text,
